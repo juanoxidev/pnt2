@@ -1,8 +1,38 @@
-# React + Vite
+instalar Gh-pages
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- npm i gh-pages -D
 
-Currently, two official plugins are available:
+Agregar base: a vite.config.js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base: "/el-nombre-de-tu-repositorio/",
+});
+```
+
+Agregar script deploy: gh-pages -d dist
+
+```
+"scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+}
+
+```
+
+Crear el repositorio en github, inicar git, agregar remoto, pushear.
+
+Ejecutar en consola
+
+```
+npm run build
+npm run deploy
+
+```
